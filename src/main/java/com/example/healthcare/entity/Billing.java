@@ -53,6 +53,16 @@ public class Billing {
     @Column(name = "UPDATED_AT", nullable = false)
     private LocalDateTime updatedAt;
 
+    @Column(name = "STATUS", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private BillingStatus status;
+
+    @Column(name = "BALANCE", nullable = false)
+    private BigDecimal balance;
+
+    @Column(name = "PAID_AMOUNT", nullable = false)
+    private BigDecimal paidAmount;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
@@ -62,5 +72,33 @@ public class Billing {
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
+    }
+
+    public BillingStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BillingStatus status) {
+        this.status = status;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public BigDecimal getPaidAmount() {
+        return paidAmount;
+    }
+
+    public void setPaidAmount(BigDecimal paidAmount) {
+        this.paidAmount = paidAmount;
+    }
+
+    public BigDecimal getAmount() {
+        return billingAmount;
     }
 }

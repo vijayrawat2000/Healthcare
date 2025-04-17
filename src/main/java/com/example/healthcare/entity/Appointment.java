@@ -2,6 +2,8 @@ package com.example.healthcare.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +13,8 @@ import java.util.Set;
  * Tracks appointment details, associated healthcare providers, and related records.
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "APPOINTMENTS")
 public class Appointment {
@@ -72,8 +76,3 @@ public class Appointment {
 /**
  * Represents the possible states of an appointment in the system.
  */
-enum AppointmentStatus {
-    PENDING,
-    COMPLETED,
-    CANCELED
-}
